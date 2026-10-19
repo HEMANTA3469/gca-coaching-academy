@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GCA Coaching Center Student Admission Form">
+    <title>GCA Coaching Center - Admission Form</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 25px 15px;
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            color: #243247;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 5px 25px #00000012;
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #d7a83e;
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            color: #17365d;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #64748b;
+        }
+
+        h3 {
+            color: #17365d;
+            border-left: 4px solid #d7a83e;
+            padding-left: 10px;
+            margin-top: 28px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            font: inherit;
+            background: #fff;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: 2px solid #d7a83e;
+            border-color: #17365d;
+        }
+
+        small {
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        .notice {
+            margin-top: 15px;
+            padding: 12px;
+            background: #fff8e6;
+            border-radius: 7px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .confirmation {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 25px 0;
+        }
+
+        .confirmation input {
+            width: auto;
+            margin-top: 3px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 13px 22px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .submit-btn {
+            background: #17365d;
+            color: white;
+        }
+
+        .reset-btn {
+            background: #e2e8f0;
+            color: #243247;
+        }
+
+        button:hover {
+            opacity: 0.88;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full-width {
+                grid-column: auto;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+    <header>
+        <h1>GCA COACHING CENTER</h1>
+        <p>Student Admission Form</p>
+        <small>Fill in your details carefully.</small>
+    </header>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+
+        <h3>Student Details</h3>
+
+        <div class="form-grid">
+
+            <div class="field">
+                <label for="name">Student Full Name *</label>
+                <input type="text" id="name" name="name"
+                       required maxlength="100">
+            </div>
+
+            <div class="field">
+                <label for="father">Father's Name</label>
+                <input type="text" id="father" name="father"
+                       maxlength="100">
+            </div>
+
+            <div class="field">
+                <label for="mother">Mother's Name</label>
+                <input type="text" id="mother" name="mother"
+                       maxlength="100">
+            </div>
+
+            <div class="field">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob">
+            </div>
+
+            <div class="field">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender">
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="class_name">Class *</label>
+                <select id="class_name" name="class_name" required>
+                    <option value="">Select Class</option>
+                    <option>Class 1</option>
+                    <option>Class 2</option>
+                    <option>Class 3</option>
+                    <option>Class 4</option>
+                    <option>Class 5</option>
+                    <option>Class 6</option>
+                    <option>Class 7</option>
+                    <option>Class 8</option>
+                    <option>Class 9</option>
+                    <option>Class 10</option>
+                    <option>Class 11</option>
+                    <option>Class 12</option>
+                    <option>+2 1st Year</option>
+                    <option>+2 2nd Year</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="course">Course / Batch</label>
+                <input type="text" id="course" name="course"
+                       placeholder="e.g. Mathematics, Science">
+            </div>
+
+            <div class="field">
+                <label for="phone">Mobile Number *</label>
+                <input type="tel" id="phone" name="phone"
+                       required inputmode="tel"
+                       pattern="[0-9+ -]{10,16}"
+                       placeholder="Enter mobile number">
+            </div>
+
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+
+            <div class="field full-width">
+                <label for="address">Full Address</label>
+                <textarea id="address" name="address"
+                          rows="3" maxlength="500"></textarea>
+            </div>
+
+            <div class="field full-width">
+                <label for="photo">Passport Size Photo (JPG/PNG)</label>
+                <input type="file" id="photo" name="photo"
+                       accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+                <small>Upload a clear passport-size photograph.</small>
+            </div>
+
+        </div>
+
+        <h3>Aadhaar Card Details</h3>
+
+        <div class="form-grid">
+
+            <div class="field full-width">
+                <label for="aadhaar_number">Aadhaar Card Number</label>
+                <input type="password"
+                       id="aadhaar_number"
+                       name="aadhaar_number"
+                       inputmode="numeric"
+                       pattern="[0-9]{12}"
+                       maxlength="12"
+                       minlength="12"
+                       autocomplete="off"
+                       placeholder="Enter 12-digit Aadhaar number">
+                <small>Enter 12 digits only, if Aadhaar collection is required.</small>
+            </div>
+
+            <div class="field full-width">
+                <label for="aadhaar_pdf">Upload Aadhaar Card PDF</label>
+                <input type="file"
+                       id="aadhaar_pdf"
+                       name="aadhaar_pdf"
+                       accept="application/pdf,.pdf">
+                <small>PDF format only. Upload only if required.</small>
+            </div>
+
+        </div>
+
+        <div class="notice">
+            Aadhaar details are sensitive personal information.
+            Submit them only when necessary and through a secure website.
+        </div>
+
+        <label class="confirmation">
+            <input type="checkbox" name="confirmation" value="yes" required>
+            <span>I confirm that the information provided is correct. *</span>
+        </label>
+
+        <div class="buttons">
+            <button type="submit" class="submit-btn">
+                Submit Admission
+            </button>
+
+            <button type="reset" class="reset-btn">
+                Reset Form
+            </button>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>

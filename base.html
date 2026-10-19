@@ -1,0 +1,101 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description"
+          content="GCA Coaching Academy student admission, classes, study notes, exams and MCQ practice">
+
+    <title>{% block title %}{{ site.academy_name or 'GCA Coaching Academy' }}{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body style="--primary: {{ site.primary_color or '#17365d' }}; --accent: {{ site.accent_color or '#d7a83e' }};">
+
+<header class="top">
+
+    <a class="brand" href="{{ url_for('home') }}">
+        {% if site.logo %}
+            <img
+                src="{{ url_for('static', filename='uploads/' + site.logo) }}"
+                alt="{{ site.academy_name or 'GCA' }} Logo">
+        {% else %}
+            <span class="logo-mark">GCA</span>
+        {% endif %}
+
+        <span>
+            <b>{{ site.academy_name or 'GCA Coaching Academy' }}</b>
+            <small>{{ site.tagline or 'Learn Today, Lead Tomorrow' }}</small>
+        </span>
+    </a>
+
+    <button
+        class="menu"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-controls="main-nav"
+        aria-expanded="false"
+        onclick="
+            const nav = document.getElementById('main-nav');
+            const isOpen = nav.classList.toggle('show');
+            this.setAttribute('aria-expanded', isOpen);
+        ">
+        ☰
+    </button>
+
+    <nav class="nav" id="main-nav" aria-label="Main navigation">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('admission') }}">Admission</a>
+        <a href="{{ url_for('learning') }}">Notes &amp; Videos</a>
+        <a href="{{ url_for('online_classes') }}">Live Classes</a>
+        <a href="{{ url_for('exams') }}">Exams</a>
+        <a href="{{ url_for('mcq') }}">MCQ</a>
+        <a href="{{ url_for('public_gallery') }}">Gallery</a>
+
+        {% if admin_logged_in %}
+            <a class="nav-admin"
+               href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a>
+            <a href="{{ url_for('admin_logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('admin_login') }}">Admin Login</a>
+        {% endif %}
+    </nav>
+
+</header>
+
+<main class="wrap">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash {{ category }}" role="status">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+
+</main>
+
+<footer>
+    <div>
+        <b>{{ site.academy_name or 'GCA Coaching Academy' }}</b>
+        <p>{{ site.address or '' }}</p>
+        <p>
+            {{ site.phone or '' }}
+            {% if site.phone and site.email %} · {% endif %}
+            {{ site.email or '' }}
+        </p>
+    </div>
+
+    <div>{{ site.footer_text or '' }}</div>
+</footer>
+
+</body>
+</html>

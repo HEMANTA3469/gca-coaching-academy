@@ -1,0 +1,7 @@
+Flask>=3.0,<4.0
+Werkzeug>=3.0
+reportlab>=4.0
+gunicorn>=22.0
+# Optional Google Sheets integration:
+gspread>=6.0
+google-auth>=2.0
